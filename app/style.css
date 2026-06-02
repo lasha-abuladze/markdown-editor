@@ -160,6 +160,10 @@ html, body {
 }
 .main .main-header .delete-save-btns--container {
   margin-left: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
 }
 .main .main-header .delete-save-btns--container .btn--save {
   width: 36px;
@@ -170,13 +174,42 @@ html, body {
 .main .main-header .delete-save-btns--container .btn--save .save-changes {
   display: none;
 }
-
-.section--container {
+.main .section--container {
   width: 100%;
   height: 100%;
   background-color: blue;
   grid-column: 2/3;
   grid-row: 2/3;
+  position: relative;
+}
+.main .section--container .section-header {
+  padding: 16px;
+  box-sizing: border-box;
+  text-transform: uppercase;
+  color: #7C8187;
+  background-color: rgba(151, 151, 151, 0.3);
+  font-size: 16px;
+  letter-spacing: 2px;
+}
+.main .section--container .section--markdown {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+}
+.main .section--container .section--preview {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  position: absolute;
+  top: 0;
+}
+.main .section--container .btn--hide-show {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+.main .section--container .btn--hide-show svg path {
+  fill: #7C8187;
 }
 
 /*# sourceMappingURL=style.css.map */

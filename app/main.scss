@@ -208,6 +208,8 @@ html, body {
 
         .delete-save-btns--container {
             margin-left: auto;
+            @include flex-row();
+            gap: 8px;
 
             .btn--save {
                 width: 36px;
@@ -223,14 +225,48 @@ html, body {
 
     }
 
+    .section--container {
+        width: 100%;
+        height: 100%;
+        background-color: blue;
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+        position: relative;
+
+        .section-header {
+            padding: 16px;
+            box-sizing: border-box;
+            text-transform: uppercase;
+            color: $color--grey;
+            background-color: rgba($color--dark-gray, .3);
+            font-size: 16px;
+            letter-spacing: 2px;
+        }
+
+        .section--markdown {
+            width: 100%;
+            height: 100%;
+            background-color: $color--white;
+        }
+
+        .section--preview {
+            width: 100%;
+            height: 100%;
+            background-color: $color--white;
+            position: absolute;
+            top: 0;
+        }
+
+        .btn--hide-show {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+
+            svg path {
+                fill: $color--grey;
+            }
+        }
+    }
+
 
 }
-
-.section--container {
-    width: 100%;
-    height: 100%;
-    background-color: blue;
-    grid-column: 2 / 3;
-    grid-row: 2 / 3;
-}
-
