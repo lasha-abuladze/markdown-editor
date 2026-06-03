@@ -15,6 +15,10 @@ html, body {
   display: none !important;
 }
 
+.display-block {
+  display: block !important;
+}
+
 .main--show-asid {
   transform: translateX(0) !important;
 }
@@ -247,6 +251,7 @@ html, body {
   background-color: #fff;
   position: absolute;
   top: 0;
+  display: none;
 }
 .main .section--container .btn--hide-show {
   position: absolute;
@@ -259,6 +264,24 @@ html, body {
 }
 .main .section--container .btn--hide-show:hover svg path {
   fill: #F39765;
+}
+
+@media (min-width: 760px) {
+  .main .main-header .logo {
+    display: block;
+    margin-right: 24px;
+    padding: 5px 24px 5px 0px;
+    border-right: 1px solid #7C8187;
+  }
+  .main .section--container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .main .section--container .section--preview {
+    position: static;
+    border-left: 1px solid rgba(124, 129, 135, 0.5);
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -12,11 +12,11 @@ const IconsThemeSwitcher = document.querySelectorAll(`.icon--theme-switcher`);
 // const iconsHideShow = document.querySelectorAll(`.icon--hide-show`);
 
 
-sectionPreview.classList.add(`display-none`);
+// sectionPreview.classList.add(`display-none`);
 
 
 btnHideShow.addEventListener(`click`, () => {
-    sectionPreview.classList.toggle(`display-none`);
+    sectionPreview.classList.toggle(`display-block`);
     iconHideShow.forEach(icon => icon.classList.toggle(`display-none`));
 })
 

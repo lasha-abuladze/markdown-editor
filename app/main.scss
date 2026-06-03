@@ -48,6 +48,9 @@ html, body {
     display: none !important;
 }
 
+.display-block {
+    display: block !important;
+}
 
 .main--show-asid {
     transform: translateX(0) !important;
@@ -324,6 +327,7 @@ html, body {
             background-color: $color--white;
             position: absolute;
             top: 0;
+            display: none;
         }
 
         .btn--hide-show {
@@ -345,4 +349,31 @@ html, body {
     }
 
 
+}
+
+
+
+@media (min-width: 760px) {
+
+    .main {
+
+        .main-header {
+            .logo {
+                display: block;
+                margin-right: 24px;
+                padding: 5px 24px 5px 0px;
+                border-right: 1px solid $color--grey;
+            }
+        }
+
+        .section--container {
+            @include flex-row();
+
+
+            .section--preview {
+                position: static;
+                border-left: 1px solid rgba($color--grey, 0.5);
+            }
+        }
+    }
 }
