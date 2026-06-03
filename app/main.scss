@@ -10,6 +10,8 @@ $color--white: #fff;
 
 
 
+$transition: 0.3s;
+
 
 
 
@@ -46,6 +48,22 @@ html, body {
 }
 
 
+.main--show-asid {
+    transform: translateX(0) !important;
+}
+
+.main--dark {
+
+    .section--container {
+        .section--markdown {
+            background-color: $color--dark !important;
+        }
+        .section--preview {
+            background-color: $color--dark !important;
+        }
+    }
+}
+
 
 .main {
     width: calc(100% + 250px);
@@ -55,6 +73,7 @@ html, body {
     grid-template-rows: fit-content(300px) 1fr;
     transform: translateX(-250px);
     font-family: Arial, Helvetica, sans-serif;
+    transition: all $transition;
 
     .aside {
         @include flex-column();
@@ -123,12 +142,14 @@ html, body {
             gap: 8px;
             width: fit-content;
 
-            .icon--moon path  {
+            .icon--theme-switcher  {
                 fill: $color--grey;
             }
 
-            .icon--sun path {
-                fill: $color--white;
+            .icon--theme-switcher-light path {
+                fill: $color--white !important;
+                transition: all $transition !important;
+
             }
 
             .theme-switcher {
@@ -139,7 +160,13 @@ html, body {
                 border-radius: 16px;
                 position: relative;
 
+                .theme-switcher--circle-dark {
+                    left: calc(100% - 4px) !important;
+                    transform: translate(-100%, -50%) !important;
+                }
+
                 .theme-switcher--circle {
+                    transition: all $transition;
                     width: 12px;
                     height: 12px;
                     border-radius: 50%;
@@ -228,7 +255,6 @@ html, body {
     .section--container {
         width: 100%;
         height: 100%;
-        background-color: blue;
         grid-column: 2 / 3;
         grid-row: 2 / 3;
         position: relative;
@@ -244,12 +270,14 @@ html, body {
         }
 
         .section--markdown {
+            transition: all $transition !important;
             width: 100%;
             height: 100%;
             background-color: $color--white;
         }
 
         .section--preview {
+            transition: all $transition !important;
             width: 100%;
             height: 100%;
             background-color: $color--white;
