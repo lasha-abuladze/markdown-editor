@@ -63,6 +63,10 @@ html, body {
   color: #fff;
   font-size: 14px;
   font-weight: 500;
+  transition: all 0.3s;
+}
+.main .aside .btn--new-document:hover {
+  background-color: #F39765;
 }
 .main .aside .my-documents--list {
   display: flex;
@@ -88,10 +92,17 @@ html, body {
   align-items: center;
   align-items: start;
   gap: 6px;
+  transition: all 0.3s;
 }
 .main .aside .my-documents--list .my-documents--list--li .my-document--file .file-deteils .creat--date {
   color: #7C8187;
   font-weight: 400;
+}
+.main .aside .my-documents--list .my-documents--list--li .my-document--file .file-deteils .file-name {
+  transition: all 0.3s;
+}
+.main .aside .my-documents--list .my-documents--list--li .my-document--file:hover .file-name {
+  color: #E46643;
 }
 .main .aside .theme-switcher--container {
   width: 50px;
@@ -158,6 +169,10 @@ html, body {
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  transition: all 0.3s;
+}
+.main .main-header .menu-btns--container .btn--menu:hover {
+  background-color: #E46643;
 }
 .main .main-header .document-name--container {
   display: flex;
@@ -183,11 +198,22 @@ html, body {
   align-items: center;
   gap: 8px;
 }
+.main .main-header .delete-save-btns--container .btn--delete .icon-delete path {
+  fill: #7C8187;
+  transition: all 0.3s;
+}
+.main .main-header .delete-save-btns--container .btn--delete:hover .icon-delete path {
+  fill: #E46643;
+}
 .main .main-header .delete-save-btns--container .btn--save {
   width: 36px;
   height: 36px;
   border-radius: 5px;
   background-color: #E46643;
+  transition: all 0.3s;
+}
+.main .main-header .delete-save-btns--container .btn--save:hover {
+  background-color: #F39765;
 }
 .main .main-header .delete-save-btns--container .btn--save .save-changes {
   display: none;
@@ -228,7 +254,11 @@ html, body {
   right: 15px;
 }
 .main .section--container .btn--hide-show svg path {
+  transition: all 0.3s;
   fill: #7C8187;
+}
+.main .section--container .btn--hide-show:hover svg path {
+  fill: #F39765;
 }
 
 /*# sourceMappingURL=style.css.map */

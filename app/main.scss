@@ -6,6 +6,7 @@ $color--dark: #1D1F22;
 $color--grey: #7C8187;
 $color--dark-gray: #979797;
 $color--orange: #E46643;
+$color--orange-light: #F39765;
 $color--white: #fff;
 
 
@@ -102,6 +103,11 @@ html, body {
             color: $color--white;
             font-size: 14px;
             font-weight: 500;
+            transition: all $transition;
+
+            &:hover {
+                background-color: $color--orange-light;
+            }
         }
 
         .my-documents--list {
@@ -125,9 +131,20 @@ html, body {
                         @include flex-column();
                         align-items: start;
                         gap: 6px;
+                        transition: all $transition;
                         .creat--date {
                             color: $color--grey;
                             font-weight: 400;
+                        }
+
+                        .file-name {
+                            transition: all $transition;
+                        }
+                    }
+
+                    &:hover {
+                        .file-name {
+                            color: $color--orange;
                         }
                     }
                 }
@@ -209,7 +226,13 @@ html, body {
                 background-color: rgba($color--dark-gray, 0.2);
                 @include flex-row();
                 justify-content: center;
-                // @include flex-column();
+                transition: all $transition;
+
+                &:hover {
+                    background-color: $color--orange;
+                }
+
+
             }
         }
 
@@ -238,11 +261,29 @@ html, body {
             @include flex-row();
             gap: 8px;
 
+            .btn--delete {
+                .icon-delete path {
+                    fill: $color--grey;
+                    transition: all $transition;
+                }
+
+                &:hover {
+                    .icon-delete path {
+                        fill: $color--orange;
+                    }
+                }
+            }
+
             .btn--save {
                 width: 36px;
                 height: 36px;
                 border-radius: 5px;
                 background-color: $color--orange;
+                transition: all $transition;
+
+                &:hover {
+                    background-color: $color--orange-light;
+                }
 
                 .save-changes {
                     display: none;
@@ -291,7 +332,14 @@ html, body {
             right: 15px;
 
             svg path {
+                transition: all $transition;
                 fill: $color--grey;
+            }
+
+            &:hover {
+                svg path {
+                    fill: $color--orange-light;
+                }
             }
         }
     }
