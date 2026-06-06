@@ -34,3 +34,17 @@ btnThemeSwitcher.addEventListener(`click`, () => {
     IconsThemeSwitcher.forEach(icon => icon.classList.toggle(`icon--theme-switcher-light`));
     circleThemeSwitcher.classList.toggle(`theme-switcher--circle-dark`);
 })
+
+
+const markdown = document.querySelector(`.markdown`);
+
+
+// if(div.focus()) {
+//     document.addEventListener(`keydown` , (e) => {
+//         console.log(`hi`)
+//     })
+// }
+
+markdown.addEventListener(`keydown`, () => {
+    // console.log(`hi`);
+})
