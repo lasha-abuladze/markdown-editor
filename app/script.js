@@ -9,10 +9,6 @@ const mainSection = document.querySelector(`.main`);
 const btnThemeSwitcher = document.querySelector(`.theme-switcher`);
 const circleThemeSwitcher = document.querySelector(`.theme-switcher--circle`);
 const IconsThemeSwitcher = document.querySelectorAll(`.icon--theme-switcher`);
-// const iconsHideShow = document.querySelectorAll(`.icon--hide-show`);
-
-
-// sectionPreview.classList.add(`display-none`);
 
 
 btnHideShow.addEventListener(`click`, () => {
@@ -36,15 +32,48 @@ btnThemeSwitcher.addEventListener(`click`, () => {
 })
 
 
+
+
+let counter = 0;
+let textArr = [];
+let xx = ``;
+
+
 const markdown = document.querySelector(`.markdown`);
+// console.log(markdown)
 
+markdown.addEventListener(`keydown`, (e) => {
+    // console.log(markdown.textContent);
 
-// if(div.focus()) {
-//     document.addEventListener(`keydown` , (e) => {
-//         console.log(`hi`)
-//     })
-// }
+    if(e.key === `Enter` && counter <2) {
+        counter++;
+        // console.log(counter);
+        textArr = markdown.value.split(`\n`);
+        xx = textArr;
+        console.log(xx)
+    }
 
-markdown.addEventListener(`keydown`, () => {
-    // console.log(`hi`);
+    if(e.key === `Enter` && counter === 2) {
+        counter = 0;
+        textArr = markdown.value.split(`\n`);
+        // console.log(textArr)
+        textArr.forEach((el, i) => {
+            if(el === ``) {
+                console.log(i)
+                textArr.splice(i, 1);
+                xx = textArr;
+                // xx = textArr.join(` `);
+                console.log(xx);
+                // xx.forEach(el => console.log(el));
+                console.log(xx[0])
+            }
+        })
+    }
+
+    if(e.key !== `Enter`) {
+        counter = 0;
+    }
+
+    // console.log(e.key);
+
 })
