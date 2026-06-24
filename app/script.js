@@ -10,6 +10,8 @@ const btnThemeSwitcher = document.querySelector(`.theme-switcher`);
 const circleThemeSwitcher = document.querySelector(`.theme-switcher--circle`);
 const IconsThemeSwitcher = document.querySelectorAll(`.icon--theme-switcher`);
 
+const markdownContainer = document.querySelector(`.section--markdown`);
+
 
 btnHideShow.addEventListener(`click`, () => {
     sectionPreview.classList.toggle(`display-block`);
@@ -38,38 +40,91 @@ let counter = 0;
 let textArr = [];
 
 
-markdown.addEventListener(`keydown`, (e) => {
-    // console.log(markdown.value);
 
-    // if(counter < 2) {
-    //     if(e.key === `Enter`) {
-    //         counter++;
-    //     }
-    // }
+// markdown.addEventListener(`keydown`, (e) => {
+//     // console.log(`hi`)
 
-    // if(counter === 2) {
-    //     counter = 0;
-    //     textArr = markdown.value.split(`\n\n`);
-    //     console.log(textArr)
-    // }
+//     if(e.key === `Enter`) {
+//         const markup = `
+//             <textarea class="markdown"></textarea>
+//         `
+//         markdownContainer.insertAdjacentHTML(`beforeend`, markup);
+
+//         const arrmarkdowns = Array.from(document.querySelectorAll(`.markdown`));
+//         console.log(arrmarkdowns)
+//         arrmarkdowns.at(-1).focus();
+
+//         xx(arrmarkdowns.at(-1));
+        
+//     }
+
+// })
+
+
+const xx = function(markdown) {
+
+    markdown.addEventListener(`keydown`, (e) => {
+
+        if(e.key === `Enter`) {
+            e.preventDefault();
+            const markup = `
+                <textarea class="markdown"></textarea>
+            `
+            markdownContainer.insertAdjacentHTML(`beforeend`, markup);
+
+            const arrmarkdowns = Array.from(document.querySelectorAll(`.markdown`));
+            console.log(arrmarkdowns)
+            arrmarkdowns.at(-1).focus();
+            // arrmarkdowns.at(-1).value = `1`
+            xx(arrmarkdowns.at(-1));
+        }
+
+    })
+
+    markdown.addEventListener(`input`, (e) => {
+        markdown.style.height = 'auto';
+        markdown.style.height = markdown.scrollHeight + 'px';
+    })
+}
+
+
+xx(markdown);
+
+
+
+
+
+
+
+// markdown.addEventListener(`keydown`, (e) => {
+//     // console.log(markdown.value);
+
+//     // if(counter < 2) {
+//     //     if(e.key === `Enter`) {
+//     //         counter++;
+//     //     }
+//     // }
+
+//     // if(counter === 2) {
+//     //     counter = 0;
+//     //     textArr = markdown.value.split(`\n\n`);
+//     //     console.log(textArr)
+//     // }
     
-    console.log(markdown.value.includes(`\n\n`))
+//     console.log(markdown.value.includes(`\n\n`))
 
 
-})
+// })
 
 
-markdown.addEventListener(`keyup`, (e) => {
-    if(e.key === `Backspace`) {
-        textArr = markdown.value.split(`\n\n`);
-        console.log(textArr)
-    }
-})
+// markdown.addEventListener(`keyup`, (e) => {
+//     if(e.key === `Backspace`) {
+//         textArr = markdown.value.split(`\n\n`);
+//         console.log(textArr)
+//     }
+// })
 
 
-
-
- 
 
 // let counter = 0;
 // let textArr = [];
