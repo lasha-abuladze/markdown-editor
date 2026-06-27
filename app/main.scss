@@ -304,6 +304,7 @@ html, body {
         position: relative;
 
         .section-header {
+            width: 100%;
             padding: 16px;
             box-sizing: border-box;
             text-transform: uppercase;
@@ -319,24 +320,30 @@ html, body {
             height: 100%;
             background-color: $color--white;
 
+            .section-header {
+                margin-bottom: 20px;
+            }
+
             @include flex-column();
 
             .markdown {
-                background-color: #eeeff0;
+                // margin-top: 15PX;
+                padding: 0px 16px;
+                background-color: #d0e0f0;
                 height: 16px;
                 max-width: 100%;
                 box-sizing: border-box;
-                overflow-wrap: anywhere; 
-                word-break: break-all;
-                outline: none;
-                padding: 0px;
                 box-sizing: border-box;
                 font-size: 16px;
                 letter-spacing: 1.5px;
                 border: none;
                 resize: none;
                 overflow: hidden;
+                overflow-wrap: anywhere; 
+                word-break: break-all;
+                outline: none;
                 line-height: 1;
+                width: 100%;
             }
         }
 
@@ -366,6 +373,35 @@ html, body {
                 }
             }
         }
+    }
+
+    .section--preview {
+        
+        .preview-h1 {
+            font-size: 20px;
+            color: red;
+        }
+
+        .preview-h2 {
+            color: blue;
+        }
+
+        .preview-h3 {
+            color: #E46643;
+        }
+
+        .preview-h4 {
+            color: yellow;
+        }
+
+        .preview-h5 {
+            color: green;
+        }
+
+        .preview-h6 {
+            color: purple;
+        }
+
     }
 
 

@@ -11,6 +11,7 @@ const circleThemeSwitcher = document.querySelector(`.theme-switcher--circle`);
 const IconsThemeSwitcher = document.querySelectorAll(`.icon--theme-switcher`);
 
 const markdownContainer = document.querySelector(`.section--markdown`);
+// const sectionPreview = document.querySelector(`.section--preview`);
 
 
 btnHideShow.addEventListener(`click`, () => {
@@ -34,11 +35,18 @@ btnThemeSwitcher.addEventListener(`click`, () => {
 })
 
 
-// let counter = 0;
-
-
 const markdown = document.querySelector(`.markdown`);
 markdown.focus();
+
+
+const createHeading = function(h, arrmarkdowns) {
+    const textContent = arrmarkdowns.at(-2).value.split(` `).slice(1).join(` `);
+    const markup = `
+        <h${h} class="preview-h${h}">${textContent}</h${h}>
+    `
+    sectionPreview.insertAdjacentHTML(`beforeend`, markup);
+}
+ 
 
 const handleMarkdown = function(markdown) {
 
@@ -46,69 +54,49 @@ const handleMarkdown = function(markdown) {
 
         if(e.key === `Enter`) {
             e.preventDefault();
-
-            // counter++;
-
             
-            const markup = `
+            const textareaHTML = `
                 <textarea class="markdown"></textarea>
             `
-            markdownContainer.insertAdjacentHTML(`beforeend`, markup);
+            markdownContainer.insertAdjacentHTML(`beforeend`, textareaHTML);
             const arrmarkdowns = Array.from(document.querySelectorAll(`.markdown`));
             arrmarkdowns.at(-1).focus();
-                
-            if(arrmarkdowns.at(-2)) {
-                console.log(arrmarkdowns.at(-2).value.split(`\n`).slice(0, -1))
-            };
+
+
+
+            if(arrmarkdowns.at(-2).value.startsWith(`#`) && arrmarkdowns.at(-2).value.startsWith(`# `) ) {
+                createHeading(1, arrmarkdowns);
+            } else if(arrmarkdowns.at(-2).value.startsWith(`##`) && arrmarkdowns.at(-2).value.startsWith(`## `)) {
+                createHeading(2, arrmarkdowns);
+            } else if(arrmarkdowns.at(-2).value.startsWith(`###`) && arrmarkdowns.at(-2).value.startsWith(`### `)) {
+                createHeading(3, arrmarkdowns);
+            } else if(arrmarkdowns.at(-2).value.startsWith(`####`) && arrmarkdowns.at(-2).value.startsWith(`#### `)) {
+                createHeading(4, arrmarkdowns);
+            } else if(arrmarkdowns.at(-2).value.startsWith(`#####`) && arrmarkdowns.at(-2).value.startsWith(`##### `)) {
+                createHeading(5, arrmarkdowns);
+            } else if(arrmarkdowns.at(-2).value.startsWith(`######`) && arrmarkdowns.at(-2).value.startsWith(`###### `)) {
+                createHeading(6, arrmarkdowns);
+            }
+            else {
+                const textContent = arrmarkdowns.at(-2).value;
+                const markup = `
+                    <p class="preview-p">${textContent}</p>
+                `
+                sectionPreview.insertAdjacentHTML(`beforeend`, markup);
+            }
 
             handleMarkdown(arrmarkdowns.at(-1));
-            
         }
-
-        // if(e.key !== `Enter`) {
-        //     // counter = 0;
-        //     // console.log(counter)
-        // }
     })
 
     markdown.addEventListener(`input`, (e) => {
-        markdown.style.height = 'auto';
+        // markdown.style.height = 'auto';
         markdown.style.height = markdown.scrollHeight + 'px';
         markdown.style.overflow = 'hidden';
     })
 }
 
 
-
-// const xx = function(markdown) {
-
-//     markdown.addEventListener(`keydown`, (e) => {
-
-//         if(e.key === `Enter`) {
-//             e.preventDefault();
-//             const markup = `
-//                 <textarea class="markdown"></textarea>
-//             `
-//             markdownContainer.insertAdjacentHTML(`beforeend`, markup);
-
-//             const arrmarkdowns = Array.from(document.querySelectorAll(`.markdown`));
-//             // console.log(arrmarkdowns)
-//             arrmarkdowns.at(-1).focus();
-//             // arrmarkdowns.at(-1).value = `1`
-//             console.log(markdown.value.startsWith(`##`))
-       
-
-
-//             xx(arrmarkdowns.at(-1));
-//         }
-
-//     })
-
-    // markdown.addEventListener(`input`, (e) => {
-    //     // markdown.style.height = 'auto';
-    //     markdown.style.height = markdown.scrollHeight + 'px';
-    // })
-// }
 
 
 handleMarkdown(markdown);

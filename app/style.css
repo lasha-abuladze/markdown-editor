@@ -230,6 +230,7 @@ html, body {
   position: relative;
 }
 .main .section--container .section-header {
+  width: 100%;
   padding: 16px;
   box-sizing: border-box;
   text-transform: uppercase;
@@ -243,26 +244,32 @@ html, body {
   width: 100%;
   height: 100%;
   background-color: #fff;
+}
+.main .section--container .section--markdown .section-header {
+  margin-bottom: 20px;
+}
+.main .section--container .section--markdown {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 .main .section--container .section--markdown .markdown {
-  background-color: #eeeff0;
+  padding: 0px 16px;
+  background-color: #d0e0f0;
   height: 16px;
   max-width: 100%;
   box-sizing: border-box;
-  overflow-wrap: anywhere;
-  word-break: break-all;
-  outline: none;
-  padding: 0px;
   box-sizing: border-box;
   font-size: 16px;
   letter-spacing: 1.5px;
   border: none;
   resize: none;
   overflow: hidden;
+  overflow-wrap: anywhere;
+  word-break: break-all;
+  outline: none;
   line-height: 1;
+  width: 100%;
 }
 .main .section--container .section--preview {
   transition: all 0.3s !important;
@@ -284,6 +291,25 @@ html, body {
 }
 .main .section--container .btn--hide-show:hover svg path {
   fill: #F39765;
+}
+.main .section--preview .preview-h1 {
+  font-size: 20px;
+  color: red;
+}
+.main .section--preview .preview-h2 {
+  color: blue;
+}
+.main .section--preview .preview-h3 {
+  color: #E46643;
+}
+.main .section--preview .preview-h4 {
+  color: yellow;
+}
+.main .section--preview .preview-h5 {
+  color: green;
+}
+.main .section--preview .preview-h6 {
+  color: purple;
 }
 
 @media (min-width: 760px) {
