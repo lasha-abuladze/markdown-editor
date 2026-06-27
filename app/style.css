@@ -248,10 +248,9 @@ html, body {
   align-items: center;
 }
 .main .section--container .section--markdown .markdown {
-  background-color: #7a8391;
-  height: 20px;
+  background-color: #eeeff0;
+  height: 16px;
   max-width: 100%;
-  margin-bottom: 20px;
   box-sizing: border-box;
   overflow-wrap: anywhere;
   word-break: break-all;
@@ -261,6 +260,9 @@ html, body {
   font-size: 16px;
   letter-spacing: 1.5px;
   border: none;
+  resize: none;
+  overflow: hidden;
+  line-height: 1;
 }
 .main .section--container .section--preview {
   transition: all 0.3s !important;
@@ -301,10 +303,6 @@ html, body {
   }
   .main .section--container .section--markdown {
     box-sizing: border-box;
-  }
-  .main .section--container .section--markdown .markdown {
-    padding: 50px;
-    font-size: 18px;
   }
   .main .section--container .section--preview {
     position: static;

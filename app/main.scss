@@ -322,13 +322,9 @@ html, body {
             @include flex-column();
 
             .markdown {
-                background-color: #7a8391;
-                // height: 40px;
-                height: 20px;
-                // height: auto;
+                background-color: #eeeff0;
+                height: 16px;
                 max-width: 100%;
-                margin-bottom: 20px;
-                // height: 100%;
                 box-sizing: border-box;
                 overflow-wrap: anywhere; 
                 word-break: break-all;
@@ -338,6 +334,9 @@ html, body {
                 font-size: 16px;
                 letter-spacing: 1.5px;
                 border: none;
+                resize: none;
+                overflow: hidden;
+                line-height: 1;
             }
         }
 
@@ -398,10 +397,10 @@ html, body {
             .section--markdown {
                 box-sizing: border-box;
 
-                .markdown {
-                    padding: 50px;
-                    font-size: 18px;
-                }
+                // .markdown {
+                //     padding: 50px;
+                //     font-size: 18px;
+                // }
             }
 
             .section--preview {

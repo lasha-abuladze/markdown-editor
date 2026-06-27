@@ -34,138 +34,81 @@ btnThemeSwitcher.addEventListener(`click`, () => {
 })
 
 
+// let counter = 0;
+
+
 const markdown = document.querySelector(`.markdown`);
+markdown.focus();
 
-let counter = 0;
-let textArr = [];
-
-
-
-// markdown.addEventListener(`keydown`, (e) => {
-//     // console.log(`hi`)
-
-//     if(e.key === `Enter`) {
-//         const markup = `
-//             <textarea class="markdown"></textarea>
-//         `
-//         markdownContainer.insertAdjacentHTML(`beforeend`, markup);
-
-//         const arrmarkdowns = Array.from(document.querySelectorAll(`.markdown`));
-//         console.log(arrmarkdowns)
-//         arrmarkdowns.at(-1).focus();
-
-//         xx(arrmarkdowns.at(-1));
-        
-//     }
-
-// })
-
-
-const xx = function(markdown) {
+const handleMarkdown = function(markdown) {
 
     markdown.addEventListener(`keydown`, (e) => {
 
         if(e.key === `Enter`) {
             e.preventDefault();
+
+            // counter++;
+
+            
             const markup = `
                 <textarea class="markdown"></textarea>
             `
             markdownContainer.insertAdjacentHTML(`beforeend`, markup);
-
             const arrmarkdowns = Array.from(document.querySelectorAll(`.markdown`));
-            console.log(arrmarkdowns)
             arrmarkdowns.at(-1).focus();
-            // arrmarkdowns.at(-1).value = `1`
-            xx(arrmarkdowns.at(-1));
+                
+            if(arrmarkdowns.at(-2)) {
+                console.log(arrmarkdowns.at(-2).value.split(`\n`).slice(0, -1))
+            };
+
+            handleMarkdown(arrmarkdowns.at(-1));
+            
         }
 
+        // if(e.key !== `Enter`) {
+        //     // counter = 0;
+        //     // console.log(counter)
+        // }
     })
 
     markdown.addEventListener(`input`, (e) => {
         markdown.style.height = 'auto';
         markdown.style.height = markdown.scrollHeight + 'px';
+        markdown.style.overflow = 'hidden';
     })
 }
 
 
-xx(markdown);
+
+// const xx = function(markdown) {
+
+//     markdown.addEventListener(`keydown`, (e) => {
+
+//         if(e.key === `Enter`) {
+//             e.preventDefault();
+//             const markup = `
+//                 <textarea class="markdown"></textarea>
+//             `
+//             markdownContainer.insertAdjacentHTML(`beforeend`, markup);
+
+//             const arrmarkdowns = Array.from(document.querySelectorAll(`.markdown`));
+//             // console.log(arrmarkdowns)
+//             arrmarkdowns.at(-1).focus();
+//             // arrmarkdowns.at(-1).value = `1`
+//             console.log(markdown.value.startsWith(`##`))
+       
 
 
+//             xx(arrmarkdowns.at(-1));
+//         }
+
+//     })
+
+    // markdown.addEventListener(`input`, (e) => {
+    //     // markdown.style.height = 'auto';
+    //     markdown.style.height = markdown.scrollHeight + 'px';
+    // })
+// }
 
 
-
-
-
-// markdown.addEventListener(`keydown`, (e) => {
-//     // console.log(markdown.value);
-
-//     // if(counter < 2) {
-//     //     if(e.key === `Enter`) {
-//     //         counter++;
-//     //     }
-//     // }
-
-//     // if(counter === 2) {
-//     //     counter = 0;
-//     //     textArr = markdown.value.split(`\n\n`);
-//     //     console.log(textArr)
-//     // }
-    
-//     console.log(markdown.value.includes(`\n\n`))
-
-
-// })
-
-
-// markdown.addEventListener(`keyup`, (e) => {
-//     if(e.key === `Backspace`) {
-//         textArr = markdown.value.split(`\n\n`);
-//         console.log(textArr)
-//     }
-// })
-
-
-
-// let counter = 0;
-// let textArr = [];
-// let xx = ``;
-
-
-// const markdown = document.querySelector(`.markdown`);
-// // console.log(markdown)
-
-// markdown.addEventListener(`keydown`, (e) => {
-//     // console.log(markdown.textContent);
-
-//     // if(e.key === `Enter` && counter <2) {
-//     //     counter++;
-//     //     // console.log(counter);
-//     //     textArr = markdown.value.split(`\n`);
-//     //     xx = textArr;
-//     //     console.log(xx)
-//     // }
-
-//     // if(e.key === `Enter` && counter === 2) {
-//     //     counter = 0;
-//     //     textArr = markdown.value.split(`\n`);
-//     //     // console.log(textArr)
-//     //     textArr.forEach((el, i) => {
-//     //         if(el === ``) {
-//     //             console.log(i)
-//     //             textArr.splice(i, 1);
-//     //             xx = textArr;
-//     //             // xx = textArr.join(` `);
-//     //             console.log(xx);
-//     //             // xx.forEach(el => console.log(el));
-//     //             console.log(xx[0])
-//     //         }
-//     //     })
-//     // }
-
-//     // if(e.key !== `Enter`) {
-//     //     counter = 0;
-//     // }
-
-//     // console.log(e.key);
-
-// })
+handleMarkdown(markdown);
