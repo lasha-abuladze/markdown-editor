@@ -402,6 +402,29 @@ html, body {
             color: purple;
         }
 
+        .list-p {
+            @include flex-row();
+            gap: 8px;
+
+            .red-dot {
+                display: block;
+                width: 6px;
+                height: 6px;
+                background-color: $color--orange;
+                border-radius: 50%;
+            }
+        }
+
+        .blockquote-div {
+            width: 100%;
+            height: fit-content;
+            padding: 20px;
+            border-radius: 10xp;
+            border-left: 2px solid orange;
+            background-color: $color--grey;
+            box-sizing: border-box;
+        }
+
     }
 
 

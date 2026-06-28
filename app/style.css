@@ -311,6 +311,28 @@ html, body {
 .main .section--preview .preview-h6 {
   color: purple;
 }
+.main .section--preview .list-p {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+.main .section--preview .list-p .red-dot {
+  display: block;
+  width: 6px;
+  height: 6px;
+  background-color: #E46643;
+  border-radius: 50%;
+}
+.main .section--preview .blockquote-div {
+  width: 100%;
+  height: fit-content;
+  padding: 20px;
+  border-radius: 10xp;
+  border-left: 2px solid orange;
+  background-color: #7C8187;
+  box-sizing: border-box;
+}
 
 @media (min-width: 760px) {
   html, body {

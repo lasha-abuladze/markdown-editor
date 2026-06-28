@@ -64,18 +64,36 @@ const handleMarkdown = function(markdown) {
 
 
 
-            if(arrmarkdowns.at(-2).value.startsWith(`#`) && arrmarkdowns.at(-2).value.startsWith(`# `) ) {
+            if(arrmarkdowns.at(-2).value.startsWith(`# `)) {
                 createHeading(1, arrmarkdowns);
-            } else if(arrmarkdowns.at(-2).value.startsWith(`##`) && arrmarkdowns.at(-2).value.startsWith(`## `)) {
+            } else if(arrmarkdowns.at(-2).value.startsWith(`## `)) {
                 createHeading(2, arrmarkdowns);
-            } else if(arrmarkdowns.at(-2).value.startsWith(`###`) && arrmarkdowns.at(-2).value.startsWith(`### `)) {
+            } else if(arrmarkdowns.at(-2).value.startsWith(`### `)) {
                 createHeading(3, arrmarkdowns);
-            } else if(arrmarkdowns.at(-2).value.startsWith(`####`) && arrmarkdowns.at(-2).value.startsWith(`#### `)) {
+            } else if(arrmarkdowns.at(-2).value.startsWith(`#### `)) {
                 createHeading(4, arrmarkdowns);
-            } else if(arrmarkdowns.at(-2).value.startsWith(`#####`) && arrmarkdowns.at(-2).value.startsWith(`##### `)) {
+            } else if(arrmarkdowns.at(-2).value.startsWith(`##### `)) {
                 createHeading(5, arrmarkdowns);
-            } else if(arrmarkdowns.at(-2).value.startsWith(`######`) && arrmarkdowns.at(-2).value.startsWith(`###### `)) {
+            } else if(arrmarkdowns.at(-2).value.startsWith(`###### `)) {
                 createHeading(6, arrmarkdowns);
+            } else if(arrmarkdowns.at(-2).value.startsWith(`- `)) {
+                console.log(`hi`)
+                const textContent = arrmarkdowns.at(-2).value.split(` `).slice(1).join(` `);
+                const markup = `
+                    <p class="list-p">
+                        <span class="red-dot"></span>
+                        ${textContent}
+                    </p>
+                `
+                sectionPreview.insertAdjacentHTML(`beforeend`, markup);
+            } else if (arrmarkdowns.at(-2).value.startsWith(`> `)) {
+                const textContent = arrmarkdowns.at(-2).value.split(` `).slice(1).join(` `);
+                const markup = `
+                    <div class="blockquote-div">
+                        <p class="blockquote-p">${textContent}</p>
+                    </div>
+                `;
+                sectionPreview.insertAdjacentHTML(`beforeend`, markup);
             }
             else {
                 const textContent = arrmarkdowns.at(-2).value;
