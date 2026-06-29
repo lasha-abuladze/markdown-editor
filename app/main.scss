@@ -1,471 +1,440 @@
-
-
-
-
-$color--dark: #1D1F22;
-$color--grey: #7C8187;
+$color--dark: #1d1f22;
+$color--grey: #7c8187;
 $color--dark-gray: #979797;
-$color--orange: #E46643;
-$color--orange-light: #F39765;
+$color--orange: #e46643;
+$color--orange-light: #f39765;
 $color--white: #fff;
-
-
 
 $transition: 0.3s;
 
-
-
-
 @mixin flex-row() {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 @mixin flex-column() {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-
-
-
-html, body {
-    overflow-x: hidden;
+html,
+body {
+  overflow-x: hidden;
 }
 
 .btn-gen {
-    width: fit-content;
-    height: fit-content;
-    border: none;
-    outline: none;
-    background: none;
-    cursor: pointer;
+  width: fit-content;
+  height: fit-content;
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
 }
 
 .display-none {
-    display: none !important;
+  display: none !important;
 }
 
 .display-block {
-    display: block !important;
+  display: block !important;
 }
 
 .main--show-asid {
-    transform: translateX(0) !important;
+  transform: translateX(0) !important;
 }
 
 .main--dark {
-
-    .section--container {
-        .section--markdown {
-            background-color: $color--dark !important;
-        }
-        .section--preview {
-            background-color: $color--dark !important;
-        }
+  .section--container {
+    .section--markdown {
+      background-color: $color--dark !important;
     }
+    .section--preview {
+      background-color: $color--dark !important;
+    }
+  }
 }
 
-
 .main {
-    width: calc(100% + 250px);
-    height: 100%;
-    display: grid;
-    grid-template-columns: fit-content(300px) 1fr;
-    grid-template-rows: fit-content(300px) 1fr;
-    transform: translateX(-250px);
-    font-family: Arial, Helvetica, sans-serif;
-    transition: all $transition;
+  width: calc(100% + 250px);
+  height: 100%;
+  display: grid;
+  grid-template-columns: fit-content(300px) 1fr;
+  grid-template-rows: fit-content(300px) 1fr;
+  transform: translateX(-250px);
+  font-family: Arial, Helvetica, sans-serif;
+  transition: all $transition;
 
-    .aside {
-        @include flex-column();
-        align-items: start;
-        gap: 32px;
-        width: 250px;
-        height: 100vh;
-        background-color: $color--dark;
-        grid-column: 1 / 2;
-        grid-row: 1 / 3;
+  .aside {
+    @include flex-column();
+    align-items: start;
+    gap: 32px;
+    width: 250px;
+    height: 100vh;
+    background-color: $color--dark;
+    grid-column: 1 / 2;
+    grid-row: 1 / 3;
 
-        padding: 25px;
-        box-sizing: border-box;
+    padding: 25px;
+    box-sizing: border-box;
 
-        .aside-title {
-            color: $color--grey;
-            font-size: 14px;
-            font-weight: 600;
-        }
+    .aside-title {
+      color: $color--grey;
+      font-size: 14px;
+      font-weight: 600;
+    }
 
-        .btn--new-document {
-            background-color: $color--orange;
-            width: 100%;
-            height: 40px;
-            border-radius: 8px;
-            color: $color--white;
-            font-size: 14px;
-            font-weight: 500;
-            transition: all $transition;
+    .btn--new-document {
+      background-color: $color--orange;
+      width: 100%;
+      height: 40px;
+      border-radius: 8px;
+      color: $color--white;
+      font-size: 14px;
+      font-weight: 500;
+      transition: all $transition;
 
-            &:hover {
-                background-color: $color--orange-light;
-            }
-        }
+      &:hover {
+        background-color: $color--orange-light;
+      }
+    }
 
-        .my-documents--list {
+    .my-documents--list {
+      @include flex-column();
+      gap: 30px;
+
+      .my-documents--list--li {
+        .my-document--file {
+          @include flex-row();
+          gap: 16px;
+          color: $color--white;
+          font-size: 14px;
+          font-weight: 600;
+
+          .icon--document {
+            width: 20px;
+          }
+
+          .file-deteils {
             @include flex-column();
-            gap: 30px;
-
-            .my-documents--list--li {
-
-                .my-document--file {
-                    @include flex-row();
-                    gap: 16px;
-                    color: $color--white;
-                    font-size: 14px;
-                    font-weight: 600;
-
-                    .icon--document {
-                        width: 20px;
-                    }
-
-                    .file-deteils {
-                        @include flex-column();
-                        align-items: start;
-                        gap: 6px;
-                        transition: all $transition;
-                        .creat--date {
-                            color: $color--grey;
-                            font-weight: 400;
-                        }
-
-                        .file-name {
-                            transition: all $transition;
-                        }
-                    }
-
-                    &:hover {
-                        .file-name {
-                            color: $color--orange;
-                        }
-                    }
-                }
+            align-items: start;
+            gap: 6px;
+            transition: all $transition;
+            .creat--date {
+              color: $color--grey;
+              font-weight: 400;
             }
+
+            .file-name {
+              transition: all $transition;
+            }
+          }
+
+          &:hover {
+            .file-name {
+              color: $color--orange;
+            }
+          }
         }
-
-        .theme-switcher--container {
-            width: 50px;
-            height: 20px;
-            margin-top: auto;
-            @include flex-row();
-            gap: 8px;
-            width: fit-content;
-
-            .icon--theme-switcher  {
-                fill: $color--grey;
-            }
-
-            .icon--theme-switcher-light path {
-                fill: $color--white !important;
-                transition: all $transition !important;
-
-            }
-
-            .theme-switcher {
-                width: 48px;
-                height: 24px;
-                background-color: $color--grey;
-                cursor: pointer;
-                border-radius: 16px;
-                position: relative;
-
-                .theme-switcher--circle-dark {
-                    left: calc(100% - 4px) !important;
-                    transform: translate(-100%, -50%) !important;
-                }
-
-                .theme-switcher--circle {
-                    transition: all $transition;
-                    width: 12px;
-                    height: 12px;
-                    border-radius: 50%;
-                    background-color: $color--white;
-                    position: absolute;
-                    top: 50%;
-                    left: 4px;
-                    transform: translateY(-50%);
-                }
-
-            }
-
-
-
-
-        }
-
-
+      }
     }
 
-    .main-header {
-        width: 100%;
-        background-color: rgba($color--dark, 0.9);
-        grid-column: 2 / 3;
-        grid-row: 1 / 2;
-        @include flex-row();
-        padding-right: 16px;
-        box-sizing: border-box;
+    .theme-switcher--container {
+      width: 50px;
+      height: 20px;
+      margin-top: auto;
+      @include flex-row();
+      gap: 8px;
+      width: fit-content;
 
-        .logo {
-            display: none;
-        }
+      .icon--theme-switcher {
+        fill: $color--grey;
+      }
 
-        .menu-btns--container {
-            margin-right: 16px;
+      .icon--theme-switcher-light path {
+        fill: $color--white !important;
+        transition: all $transition !important;
+      }
 
-            .btn--menu {
-                width: 52px;
-                height: 52px;
-                background-color: rgba($color--dark-gray, 0.2);
-                @include flex-row();
-                justify-content: center;
-                transition: all $transition;
-
-                &:hover {
-                    background-color: $color--orange;
-                }
-
-
-            }
-        }
-
-        .document-name--container {
-            @include flex-row();
-            gap: 8px;
-
-            .input-container {
-                .inp-label {
-                    display: none;
-                }
-
-                .inp-name {
-                    width: 100px;
-                    background: none;
-                    border: none;
-                    outline: none;
-                    border-bottom: 2px solid $color--white;
-                    color: $color--white;
-                }
-            }
-        }
-
-        .delete-save-btns--container {
-            margin-left: auto;
-            @include flex-row();
-            gap: 8px;
-
-            .btn--delete {
-                .icon-delete path {
-                    fill: $color--grey;
-                    transition: all $transition;
-                }
-
-                &:hover {
-                    .icon-delete path {
-                        fill: $color--orange;
-                    }
-                }
-            }
-
-            .btn--save {
-                width: 36px;
-                height: 36px;
-                border-radius: 5px;
-                background-color: $color--orange;
-                transition: all $transition;
-
-                &:hover {
-                    background-color: $color--orange-light;
-                }
-
-                .save-changes {
-                    display: none;
-                }
-            }
-        }
-
-    }
-
-    .section--container {
-        width: 100%;
-        height: 100%;
-        grid-column: 2 / 3;
-        grid-row: 2 / 3;
+      .theme-switcher {
+        width: 48px;
+        height: 24px;
+        background-color: $color--grey;
+        cursor: pointer;
+        border-radius: 16px;
         position: relative;
 
-        .section-header {
-            width: 100%;
-            padding: 16px;
-            box-sizing: border-box;
-            text-transform: uppercase;
-            color: $color--grey;
-            background-color: rgba($color--dark-gray, .3);
-            font-size: 16px;
-            letter-spacing: 2px;
+        .theme-switcher--circle-dark {
+          left: calc(100% - 4px) !important;
+          transform: translate(-100%, -50%) !important;
         }
 
-        .section--markdown {
-            transition: all $transition !important;
-            width: 100%;
-            height: 100%;
-            background-color: $color--white;
+        .theme-switcher--circle {
+          transition: all $transition;
+          width: 12px;
+          height: 12px;
+          border-radius: 50%;
+          background-color: $color--white;
+          position: absolute;
+          top: 50%;
+          left: 4px;
+          transform: translateY(-50%);
+        }
+      }
+    }
+  }
 
-            .section-header {
-                margin-bottom: 20px;
-            }
+  .main-header {
+    width: 100%;
+    background-color: rgba($color--dark, 0.9);
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    @include flex-row();
+    padding-right: 16px;
+    box-sizing: border-box;
 
-            @include flex-column();
+    .logo {
+      display: none;
+    }
 
-            .markdown {
-                // margin-top: 15PX;
-                padding: 0px 16px;
-                background-color: #d0e0f0;
-                height: 16px;
-                max-width: 100%;
-                box-sizing: border-box;
-                box-sizing: border-box;
-                font-size: 16px;
-                letter-spacing: 1.5px;
-                border: none;
-                resize: none;
-                overflow: hidden;
-                overflow-wrap: anywhere; 
-                word-break: break-all;
-                outline: none;
-                line-height: 1;
-                width: 100%;
-            }
+    .menu-btns--container {
+      margin-right: 16px;
+
+      .btn--menu {
+        width: 52px;
+        height: 52px;
+        background-color: rgba($color--dark-gray, 0.2);
+        @include flex-row();
+        justify-content: center;
+        transition: all $transition;
+
+        &:hover {
+          background-color: $color--orange;
+        }
+      }
+    }
+
+    .document-name--container {
+      @include flex-row();
+      gap: 8px;
+
+      .input-container {
+        .inp-label {
+          display: none;
         }
 
-        .section--preview {
-            transition: all $transition !important;
-            width: 100%;
-            height: 100%;
-            background-color: $color--white;
-            position: absolute;
-            top: 0;
-            display: none;
+        .inp-name {
+          width: 100px;
+          background: none;
+          border: none;
+          outline: none;
+          border-bottom: 2px solid $color--white;
+          color: $color--white;
+        }
+      }
+    }
+
+    .delete-save-btns--container {
+      margin-left: auto;
+      @include flex-row();
+      gap: 8px;
+
+      .btn--delete {
+        .icon-delete path {
+          fill: $color--grey;
+          transition: all $transition;
         }
 
-        .btn--hide-show {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-
-            svg path {
-                transition: all $transition;
-                fill: $color--grey;
-            }
-
-            &:hover {
-                svg path {
-                    fill: $color--orange-light;
-                }
-            }
+        &:hover {
+          .icon-delete path {
+            fill: $color--orange;
+          }
         }
+      }
+
+      .btn--save {
+        width: 36px;
+        height: 36px;
+        border-radius: 5px;
+        background-color: $color--orange;
+        transition: all $transition;
+
+        &:hover {
+          background-color: $color--orange-light;
+        }
+
+        .save-changes {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .section--container {
+    width: 100%;
+    height: 100%;
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    position: relative;
+
+    .section-header {
+      width: 100%;
+      padding: 16px;
+      box-sizing: border-box;
+      text-transform: uppercase;
+      color: $color--grey;
+      background-color: rgba($color--dark-gray, 0.3);
+      font-size: 16px;
+      letter-spacing: 2px;
+    }
+
+    .section--markdown {
+      transition: all $transition !important;
+      width: 100%;
+      height: 100%;
+      background-color: $color--white;
+
+      .section-header {
+        margin-bottom: 20px;
+      }
+
+      @include flex-column();
+
+      .markdown {
+        // margin-top: 15PX;
+        padding: 0px 16px;
+        background-color: #d0e0f0;
+        height: 16px;
+        max-width: 100%;
+        box-sizing: border-box;
+        box-sizing: border-box;
+        font-size: 16px;
+        letter-spacing: 1.5px;
+        border: none;
+        resize: none;
+        overflow: hidden;
+        overflow-wrap: anywhere;
+        word-break: break-all;
+        outline: none;
+        line-height: 1;
+        width: 100%;
+
+        margin-bottom: 5px;
+      }
     }
 
     .section--preview {
-        
-        .preview-h1 {
-            font-size: 20px;
-            color: red;
-        }
-
-        .preview-h2 {
-            color: blue;
-        }
-
-        .preview-h3 {
-            color: #E46643;
-        }
-
-        .preview-h4 {
-            color: yellow;
-        }
-
-        .preview-h5 {
-            color: green;
-        }
-
-        .preview-h6 {
-            color: purple;
-        }
-
-        .list-p {
-            @include flex-row();
-            gap: 8px;
-
-            .red-dot {
-                display: block;
-                width: 6px;
-                height: 6px;
-                background-color: $color--orange;
-                border-radius: 50%;
-            }
-        }
-
-        .blockquote-div {
-            width: 100%;
-            height: fit-content;
-            padding: 20px;
-            border-radius: 10xp;
-            border-left: 2px solid orange;
-            background-color: $color--grey;
-            box-sizing: border-box;
-        }
-
+      transition: all $transition !important;
+      width: 100%;
+      height: 100%;
+      background-color: $color--white;
+      position: absolute;
+      top: 0;
+      display: none;
     }
 
+    .btn--hide-show {
+      position: absolute;
+      top: 15px;
+      right: 15px;
 
+      svg path {
+        transition: all $transition;
+        fill: $color--grey;
+      }
+
+      &:hover {
+        svg path {
+          fill: $color--orange-light;
+        }
+      }
+    }
+  }
+
+  .section--preview {
+    .preview-h1 {
+      font-size: 20px;
+      color: red;
+    }
+
+    .preview-h2 {
+      color: blue;
+    }
+
+    .preview-h3 {
+      color: #e46643;
+    }
+
+    .preview-h4 {
+      color: yellow;
+    }
+
+    .preview-h5 {
+      color: green;
+    }
+
+    .preview-h6 {
+      color: purple;
+    }
+
+    .list-p {
+      @include flex-row();
+      gap: 8px;
+
+      .red-dot {
+        display: block;
+        width: 6px;
+        height: 6px;
+        background-color: $color--orange;
+        border-radius: 50%;
+      }
+    }
+
+    .blockquote-div {
+      width: 100%;
+      height: fit-content;
+      padding: 20px;
+      border-radius: 10xp;
+      border-left: 2px solid orange;
+      background-color: $color--grey;
+      box-sizing: border-box;
+    }
+  }
 }
 
-
-
 @media (min-width: 760px) {
+  html,
+  body {
+    width: 100vw;
+  }
 
-    html, body {
-        width: 100vw;
+  .main {
+    .main-header {
+      .logo {
+        display: block;
+        margin-right: 24px;
+        padding: 5px 24px 5px 0px;
+        border-right: 1px solid $color--grey;
+      }
     }
 
-    .main {
+    .section--container {
+      @include flex-row();
 
-        .main-header {
-            .logo {
-                display: block;
-                margin-right: 24px;
-                padding: 5px 24px 5px 0px;
-                border-right: 1px solid $color--grey;
-            }
-        }
+      .section--markdown {
+        box-sizing: border-box;
 
-        .section--container {
-            @include flex-row();
+        // .markdown {
+        //     padding: 50px;
+        //     font-size: 18px;
+        // }
+      }
 
-
-            .section--markdown {
-                box-sizing: border-box;
-
-                // .markdown {
-                //     padding: 50px;
-                //     font-size: 18px;
-                // }
-            }
-
-            .section--preview {
-                position: static;
-                border-left: 1px solid rgba($color--grey, 0.5);
-            }
-        }
+      .section--preview {
+        position: static;
+        border-left: 1px solid rgba($color--grey, 0.5);
+      }
     }
+  }
 }
